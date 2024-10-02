@@ -88,13 +88,29 @@ void insere()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
-
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+		cout << fim->valor << " ultimo" << endl;
+		cout << inicio->valor << " primeiro" << endl;
+	}
 }
 
 void remove()
 {
+	NO* aux = inicio;
 
-
-
+	if (inicio == NULL) {
+		cout << "Lista vazia.";
+	}
+	else {
+		inicio = inicio->prox;
+		cout << "Elemento apagado: " << aux->valor << endl;
+		free(aux);
+	}
 }
 
